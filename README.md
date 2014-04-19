@@ -25,25 +25,30 @@ There are some hardcoded things I have added to suite my particular needs for th
 
 In reference to this allow me to clarify what the parameters to this method are for (allow me to apologize for some of the names, they're not exactly spot on).
 
-retrieveAndShowJson(String url, final Button tgtButton, String[] jsonSearchList, final String requestType, final String[] additionalParams);
+``retrieveAndShowJson(String url, final Button tgtButton, String[] jsonSearchList, final String requestType, final String[] additionalParams);``
 
-   url = Input url where we will fetch data from (ex. "http://www.corvallis-bus.appspot.com/routes")
+   **url** = Input url where we will fetch data from (ex. "http://www.corvallis-bus.appspot.com/routes")
    
-   tgtButton = This is specific to this example. This allows me to have a handle to the button (of the 2 here) so as to change the text when it's working and when it's done. Feel free to remove this.
+   **tgtButton** = This is specific to this example. This allows me to have a handle to the button (of the 2 here) so as to change the text when it's working and when it's done. Feel free to remove this.
    
-   jsonSearchList = This is a string array indicating the elements you wish to retrieve. An example would be passing "new String[]{"Name","Description"};". 
+   **jsonSearchList** = This is a string array indicating the elements you wish to retrieve. An example would be passing ``new String[]{"Name","Description"};``. 
    What you will get back is a string array where each element is just the Name & Description! This is particularly useful if you're getting back "Name,Description,ExtraName,ExtraDescription,MoreInfo,StuffWeDontCareAbout", and you only want just the 2!
    Feel free to modify the code to, say, return a HashMap or an array of doubles[]. As long as it suites your needs.
    
-   requestType = This is a particular var that is important as to splitting the data you are receiving. If you send the url "http://www.corvallis-bus.appspot.com/routes" your json will start with 'routes', so you will need to start spliting by that name.
+   **requestType** = This is a particular var that is important as to splitting the data you are receiving. If you send the url "http://www.corvallis-bus.appspot.com/routes" your json will start with 'routes', so you will need to start spliting by that name.
    This is not particularly convenient, considering requests for certain stops will require passing the individual stop numbers here as well. 
    You can see more about what the first object you should expect is here: https://github.com/OSU-App-Club/corvallis-bus-server.
    
-   additionalParams = If you would like to ONLY receive data that contains a specific String, you may pass an array with that String and any others you wish to include.
-   You will ONLY receive data that has at least one component that matches that string word for word. This is convenient for getting a particular stop by Address, for example "new String[]{"NW Harrison Blvd"}".
+   **additionalParams** = If you would like to ONLY receive data that contains a specific String, you may pass an array with that String and any others you wish to include.
+   You will ONLY receive data that has at least one component that matches that string word for word. This is convenient for getting a particular stop by Address, for example ``new String[]{"NW Harrison Blvd"}``.
    
    
 The following parameters are useful to trimming any data that you are pulling, however they are no substitute for GET!
+Making a request for a specific item using GET reduces the amount of data you get, always desirable.
+An example would be retrieving data for a particular stop...say stop 13713?
+``http://www.corvallis-bus.appspot.com/arrivals?stops=13713``
+This will only give us the the 'arrival' data for stop 13713. 
+If you're wondering what parameters you can pass to the corvallis-bus server for arrivals, routes, and stops you can check here; again : https://github.com/OSU-App-Club/corvallis-bus-server.
 Using this is far more powerful and effective, and you can see examples of how to utilize this in the url I provided previously, here again: https://github.com/OSU-App-Club/corvallis-bus-server.
 
 If you have any questions about the functionality or any issues getting this working feel free to get a hold of me at the hackathon on Saturday!
