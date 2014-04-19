@@ -49,7 +49,6 @@ An example would be retrieving data for a particular stop...say stop 13713?
 ``http://www.corvallis-bus.appspot.com/arrivals?stops=13713``
 This will only give us the the 'arrival' data for stop 13713. 
 If you're wondering what parameters you can pass to the corvallis-bus server for arrivals, routes, and stops you can check here; again : https://github.com/OSU-App-Club/corvallis-bus-server.
-Using this is far more powerful and effective, and you can see examples of how to utilize this in the url I provided previously, here again: https://github.com/OSU-App-Club/corvallis-bus-server.
 
 If you have any questions about the functionality or any issues getting this working feel free to get a hold of me at the hackathon on Saturday!
    
